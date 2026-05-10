@@ -20,11 +20,17 @@
   <meta property="og:title" content="שקור רביע · רואה חשבון בחיפה" />
   <meta property="og:description" content="ליווי פיננסי בגובה העיניים. ייעוץ מס, הנהלת חשבונות ודוחות לעצמאים, חברות ועסקים בחיפה ובצפון." />
   <meta property="og:url" content="https://shakur-rabia.co.il/" />
+  <meta property="og:image" content="https://shakur-rabia.co.il/shakur.jpg" />
+  <meta property="og:image:alt" content="רו״ח שקור רביע — משרד רואה חשבון בחיפה" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="שקור רביע · רואה חשבון בחיפה" />
   <meta name="twitter:description" content="משרד רואי חשבון בחיפה — ליווי אישי, ייעוץ מס, ושירות בגובה העיניים." />
+  <meta name="twitter:image" content="https://shakur-rabia.co.il/shakur.jpg" />
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="shakur.jpg" />
 
   <!-- Favicon (inline SVG monogram) -->
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230e1f17'/><text x='50%25' y='58%25' text-anchor='middle' font-family='serif' font-size='32' fill='%23c9a961' font-weight='700'>ש״ר</text></svg>" />
@@ -42,8 +48,8 @@
     "@context": "https://schema.org",
     "@type": "AccountingService",
     "name": "שקור רביע - משרד רואה חשבון",
-    "alternateName": "Shakur Rabia CPA",
-    "image": "https://shakur-rabia.co.il/og.jpg",
+    "alternateName": "Chacour Rabeia CPA",
+    "image": "https://shakur-rabia.co.il/shakur.jpg",
     "url": "https://shakur-rabia.co.il/",
     "telephone": "+972527742312",
     "priceRange": "$$",
@@ -193,29 +199,51 @@
           </ul>
         </div>
 
-        <!-- 3D rotating object -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="orbit orbit-1"></div>
-          <div class="orbit orbit-2"></div>
+        <!-- Portrait composition -->
+        <div class="hero-visual">
+          <div class="portrait-pattern" aria-hidden="true"></div>
+          <div class="portrait-glow" aria-hidden="true"></div>
 
-          <div class="scene">
-            <div class="prism">
-              <div class="face face-front"><span>ש״ר</span></div>
-              <div class="face face-back"><span>₪</span></div>
-              <div class="face face-right"></div>
-              <div class="face face-left"></div>
-              <div class="face face-top"></div>
-              <div class="face face-bottom"></div>
+          <div class="portrait-stack">
+            <div class="portrait-frame">
+              <span class="corner corner-tl" aria-hidden="true"></span>
+              <span class="corner corner-tr" aria-hidden="true"></span>
+              <span class="corner corner-bl" aria-hidden="true"></span>
+              <span class="corner corner-br" aria-hidden="true"></span>
+
+              <div class="portrait-img">
+                <img src="shakur.jpg" alt="רו״ח שקור רביע - בעלי המשרד" loading="eager" decoding="async" width="1280" height="500" />
+                <div class="portrait-shade" aria-hidden="true"></div>
+              </div>
+
+              <div class="portrait-plate" aria-hidden="true">
+                <span class="plate-mark">CR</span>
+                <span class="plate-divider"></span>
+                <span class="plate-text">
+                  <strong>שקור רביע</strong>
+                  <em>רואה חשבון מוסמך</em>
+                </span>
+              </div>
             </div>
 
-            <div class="float float-1"><span>דוח שנתי</span></div>
-            <div class="float float-2"><span>מע״מ</span></div>
-            <div class="float float-3"><span>ניכויים</span></div>
-            <div class="float float-4"><span>מאזן</span></div>
+            <div class="badge badge-1" aria-hidden="true">
+              <span class="badge-num">20+</span>
+              <span class="badge-label">שנות<br/>ניסיון</span>
+            </div>
+            <div class="badge badge-2" aria-hidden="true">
+              <span class="badge-icon">★</span>
+              <span class="badge-label">דירוג<br/>5.0</span>
+            </div>
+            <div class="badge badge-3" aria-hidden="true">
+              <span class="badge-tick">✓</span>
+              <span class="badge-label">ייצוג<br/>ברשויות המס</span>
+            </div>
           </div>
 
-          <div class="hero-stamp">
-            <span>אמון · דיוק · ליווי</span>
+          <div class="signature" aria-hidden="true">
+            <span class="signature-line"></span>
+            <span class="signature-text">EST · CHACOUR RABEIA · CPA · HAIFA</span>
+            <span class="signature-line"></span>
           </div>
         </div>
       </div>

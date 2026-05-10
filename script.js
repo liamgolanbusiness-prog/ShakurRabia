@@ -149,26 +149,30 @@
     });
   }
 
-  // ---------- Hero parallax on prism ----------
+  // ---------- Hero portrait parallax (subtle 3D tilt) ----------
   const scene = document.querySelector('.hero-visual');
   if (scene && !prefersReduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    const prism = scene.querySelector('.prism');
+    const frame = scene.querySelector('.portrait-frame');
+    const badges = scene.querySelectorAll('.badge');
+    let raf = null;
     scene.addEventListener('mousemove', (e) => {
       const r = scene.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5;
       const y = (e.clientY - r.top) / r.height - 0.5;
-      if (prism) {
-        prism.style.transition = 'none';
-        prism.style.animationPlayState = 'paused';
-        prism.style.transform = `rotateX(${-12 + y * -10}deg) rotateY(${x * 30}deg)`;
-      }
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        if (frame) {
+          frame.style.transform = `perspective(1200px) rotateY(${x * 6}deg) rotateX(${-y * 4}deg) translateZ(0)`;
+        }
+        badges.forEach((b, i) => {
+          const depth = (i + 1) * 6;
+          b.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0)`;
+        });
+      });
     });
     scene.addEventListener('mouseleave', () => {
-      if (prism) {
-        prism.style.transition = 'transform .8s cubic-bezier(0.22, 1, 0.36, 1)';
-        prism.style.animationPlayState = 'running';
-        prism.style.transform = '';
-      }
+      if (frame) frame.style.transform = '';
+      badges.forEach(b => { b.style.transform = ''; });
     });
   }
 
@@ -224,14 +228,14 @@
     });
   }
 
-  // ---------- Reduce hero animation cost when off-screen ----------
+  // ---------- Pause hero badge animations when off-screen ----------
   const hero = document.querySelector('.hero');
   if (hero && 'IntersectionObserver' in window) {
     const ho = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        const prism = hero.querySelector('.prism');
-        if (!prism) return;
-        prism.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+        hero.querySelectorAll('.badge').forEach(b => {
+          b.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+        });
       });
     });
     ho.observe(hero);
